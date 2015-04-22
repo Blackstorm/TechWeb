@@ -1,3 +1,7 @@
+wac_tech_web_task:
+    resource: "@WacTechWebBundle/Resources/config/routing/task.yml"
+    prefix:   /task
+
 wac_tech_web_board:
     resource: "@WacTechWebBundle/Resources/config/routing/board.yml"
     prefix:   /board
