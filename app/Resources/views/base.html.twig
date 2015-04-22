@@ -1,13 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+<head>
+    <title>TechWeb</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/wactechweb/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/wactechweb/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/wactechweb/css/stickyfooter.css') }}">
+    <link href='http://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">TECHWEB</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="">
+                        <a href="../">Accueil</a>
+                    </li>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li>
+                            <a>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </a>
+                        </li>
+                        <li>
+                            <a href="/profile/edit">Editer son profil</a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        </li>
+                    {% else %}
+                        
+                            <li><a href="/register">S'inscrire</a></li>
+                            <li><a href="/login">Se connecter</a></li>
+                            {# <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> #}
+                        
+                    {% endif %}
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    {# <div class="container">
+        <div class="page-header">
+            <h1>Stickey</h1>
+        </div>
+        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body > .container</code>.</p>
+        <p></p>
+    </div> #}
+
+    <div>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+    </div>
+    <div class="form-container">
+        <div class="container"> 
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">TechWeb.</p>
+        </div>
+    </footer>
+
+<script type="text/javascript" src="{{ asset('bundles/wactechweb/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/wactechweb/js/bootstrap.min.js') }}"></script>
+</body>
+</html> 

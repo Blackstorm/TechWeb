@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+<div class="form-container">
+	<div class="container">	
+	    <h1>Créer un board</h1>
+
+	    {{ form(form) }}
+
+	        <ul class="record_actions">
+	   			<li>
+	        		<a href="{{ path('board') }}">
+	            		Back to the list
+	        		</a>
+	   			 </li>
+			</ul>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+board:
+    path:     /
+    defaults: { _controller: "WacTechWebBundle:Board:index" }
+
+board_show:
+    path:     /{id}/show
+    defaults: { _controller: "WacTechWebBundle:Board:show" }
+
+board_new:
+    path:     /new
+    defaults: { _controller: "WacTechWebBundle:Board:new" }
+
+board_create:
+    path:     /create
+    defaults: { _controller: "WacTechWebBundle:Board:create" }
+    methods:  POST
+
+board_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WacTechWebBundle:Board:edit" }
+
+board_update:
+    path:     /{id}/update
+    defaults: { _controller: "WacTechWebBundle:Board:update" }
+    methods:  [POST, PUT]
+
+board_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WacTechWebBundle:Board:delete" }
+    methods:  [POST, DELETE]
