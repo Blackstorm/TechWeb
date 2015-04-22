@@ -1,0 +1,42 @@
+.navbar-default {
+	background-color:#489DC5;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.navbar-default .navbar-brand {
+    color: #000;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #FFF;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #FFF;
+    background-color: transparent;
+}
+
+.form-container {
+	margin-top: 50px;
+}
+
+.form-container h3 {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+
+.footer {
+    background-color:#489DC5!important;
+}
+
+.text-muted {
+    color: #000!important;
+    font-family: 'Didact Gothic', sans-serif;
+}
