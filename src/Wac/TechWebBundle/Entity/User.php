@@ -34,7 +34,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="Board", mappedBy="user")
      */
-    protected $task;
+    protected $board;
 
 
     /**
@@ -73,10 +73,43 @@ class User extends BaseUser
     /**
      * Get task
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTask()
     {
         return $this->task;
+    }
+
+    /**
+     * Add board
+     *
+     * @param \Wac\TechWebBundle\Entity\Board $board
+     * @return User
+     */
+    public function addBoard(\Wac\TechWebBundle\Entity\Board $board)
+    {
+        $this->board[] = $board;
+
+        return $this;
+    }
+
+    /**
+     * Remove board
+     *
+     * @param \Wac\TechWebBundle\Entity\Board $board
+     */
+    public function removeBoard(\Wac\TechWebBundle\Entity\Board $board)
+    {
+        $this->board->removeElement($board);
+    }
+
+    /**
+     * Get board
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBoard()
+    {
+        return $this->board;
     }
 }
