@@ -162,6 +162,10 @@ class TaskController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        if(empty($request->get('wac_techwebbundle_task')['board'])){
+            return $this->redirect($this->generateUrl('task_new'));
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('WacTechWebBundle:Task')->find($id);
