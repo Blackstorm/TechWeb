@@ -6,6 +6,9 @@ wac_tech_web_board:
     resource: "@WacTechWebBundle/Resources/config/routing/board.yml"
     prefix:   /board
 
+
+
+
 wac_tech_web_homepage:
     path:     /
     defaults: { _controller: WacTechWebBundle:Default:index }

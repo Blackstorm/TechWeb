@@ -4,13 +4,13 @@
     <h1>Board list</h1>
 
     <table class="records_list">
-        {# <thead>
+        <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Actions</th>
             </tr>
-        </thead> #}
+        </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
@@ -34,7 +34,7 @@
         <ul>
         <li>
             <a href="{{ path('board_new') }}">
-                Créer un nouveau board
+                Create a new entry
             </a>
         </li>
     </ul>

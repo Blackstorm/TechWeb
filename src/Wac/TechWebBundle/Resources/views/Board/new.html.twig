@@ -1,17 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+    <h1>Board creation</h1>
 
-	    <h1>Créer un board</h1>
+    {{ form(form) }}
 
-	    {{ form(form) }}
-
-	        <ul class="record_actions">
-	   			<li>
-	        		<a href="{{ path('board') }}">
-	            		Back to the list
-	        		</a>
-	   			 </li>
-			</ul>
-
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('board') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
 {% endblock %}

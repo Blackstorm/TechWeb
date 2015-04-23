@@ -8,7 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('WacTechWebBundle::layout.html.twig');
+        return $this->render('::base.html.twig');
     }
 
 }
