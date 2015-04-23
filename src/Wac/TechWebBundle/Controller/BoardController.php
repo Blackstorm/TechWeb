@@ -36,12 +36,15 @@ class BoardController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Board();
+        $creator = $this->get('security.context')->getToken()->getUser();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            // dump($creator);die();
+            $entity->addUser($creator);
             $em->flush();
 
             return $this->redirect($this->generateUrl('board_show', array('id' => $entity->getId())));
@@ -52,6 +55,7 @@ class BoardController extends Controller
             'form'   => $form->createView(),
         ));
     }
+
 
     /**
      * Creates a form to create a Board entity.

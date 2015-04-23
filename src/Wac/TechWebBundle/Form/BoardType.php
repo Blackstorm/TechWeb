@@ -18,7 +18,7 @@ class BoardType extends AbstractType
             ->add('name')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

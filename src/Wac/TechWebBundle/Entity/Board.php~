@@ -34,10 +34,12 @@ class Board
     protected $task;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="board")
-     */
+   * @ORM\ManyToMany(targetEntity="User", inversedBy="board", cascade={"persist"})
+   * @ORM\JoinTable(name="user_board")
+   *
+   * @var ArrayCollection $user
+   */
     protected $user;
-
     /**
      * Get id
      *
@@ -131,10 +133,43 @@ class Board
     /**
      * Get user
      *
-     * @return \Wac\TechWebBundle\Entity\User 
+     * @return \Wac\TechWebBundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \Wac\TechWebBundle\Entity\User $user
+     * @return Board
+     */
+    public function addUser(\Wac\TechWebBundle\Entity\User $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \Wac\TechWebBundle\Entity\User $user
+     */
+    public function removeUser(\Wac\TechWebBundle\Entity\User $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

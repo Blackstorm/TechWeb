@@ -31,10 +31,6 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Board", mappedBy="user")
-     */
-    protected $board;
 
 
     /**
@@ -46,6 +42,11 @@ class User extends BaseUser
     {
         return $this->id;
     }
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="board")
+     */
+    protected $board;
 
     /**
      * Add task
@@ -111,5 +112,15 @@ class User extends BaseUser
     public function getBoard()
     {
         return $this->board;
+    }
+
+    /**
+     * Get boards
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBoards()
+    {
+        return $this->boards;
     }
 }
