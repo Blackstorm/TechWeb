@@ -32,11 +32,16 @@ class Board
      * @ORM\OneToMany(targetEntity="Task", mappedBy="board")
      */
     protected $task;
-    
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="board")
+     */
+    protected $user;
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -59,10 +64,54 @@ class Board
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->task = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    public function __toString() {
+        return $this->name;
+    }
+    /**
+     * Add task
+     *
+     * @param \Wac\TechWebBundle\Entity\Task $task
+     * @return Board
+     */
+    public function addTask(\Wac\TechWebBundle\Entity\Task $task)
+    {
+        $this->task[] = $task;
+
+        return $this;
+    }
+
+    /**
+     * Remove task
+     *
+     * @param \Wac\TechWebBundle\Entity\Task $task
+     */
+    public function removeTask(\Wac\TechWebBundle\Entity\Task $task)
+    {
+        $this->task->removeElement($task);
+    }
+
+    /**
+     * Get task
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTask()
+    {
+        return $this->task;
     }
 }

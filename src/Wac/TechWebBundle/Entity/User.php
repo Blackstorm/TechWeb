@@ -21,7 +21,7 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
-    
+
     /**
      * @var integer
      *
@@ -31,14 +31,52 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Board", mappedBy="user")
+     */
+    protected $task;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add task
+     *
+     * @param \Wac\TechWebBundle\Entity\Board $task
+     * @return User
+     */
+    public function addTask(\Wac\TechWebBundle\Entity\Board $task)
+    {
+        $this->task[] = $task;
+
+        return $this;
+    }
+
+    /**
+     * Remove task
+     *
+     * @param \Wac\TechWebBundle\Entity\Board $task
+     */
+    public function removeTask(\Wac\TechWebBundle\Entity\Board $task)
+    {
+        $this->task->removeElement($task);
+    }
+
+    /**
+     * Get task
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTask()
+    {
+        return $this->task;
     }
 }

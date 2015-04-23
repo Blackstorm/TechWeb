@@ -66,4 +66,27 @@ class Task
     {
         return $this->name;
     }
+
+    /**
+     * Set board
+     *
+     * @param \Wac\TechWebBundle\Entity\Board $board
+     * @return Task
+     */
+    public function setBoard(\Wac\TechWebBundle\Entity\Board $board = null)
+    {
+        $this->board = $board;
+
+        return $this;
+    }
+
+    /**
+     * Get board
+     *
+     * @return \Wac\TechWebBundle\Entity\Board 
+     */
+    public function getBoard()
+    {
+        return $this->board;
+    }
 }
