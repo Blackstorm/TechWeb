@@ -35,6 +35,11 @@ class TaskController extends Controller
      */
     public function createAction(Request $request)
     {
+        //if($request)
+        if(empty($request->get('wac_techwebbundle_task')['board'])){
+            return $this->redirect($this->generateUrl('board_new'));
+        }
+
         $entity = new Task();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);

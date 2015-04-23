@@ -40,3 +40,7 @@
     color: #000!important;
     font-family: 'Didact Gothic', sans-serif;
 }
+
+span {
+    font-weight: bold;
+}
