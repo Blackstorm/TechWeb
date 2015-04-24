@@ -7,6 +7,11 @@
         <li>{{ tasks.name }}</li>
     {% endfor %}
 
+    {% for member in entity.user %}
+        <p><span>Creator: {{member.username}}</span></p>
+    {% endfor %}
+
+
     <p><span>Id</span> {{ entity.id }}</p>
     <p><span>Name</span> {{ entity.name }}</p>
 

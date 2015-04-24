@@ -28,7 +28,7 @@
                     </li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>
-                            <a>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </a>
+                            <a>{{ app.user.username}} </a>
                         </li>
                         <li>
                             <a href="/profile/edit">Editer son profil</a>
@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/board/new">Créer un board</a>
+                            <a href="/board">Boards</a>
                         </li>
                     {% else %}
                         

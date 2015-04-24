@@ -78,6 +78,7 @@ class Board
     public function __construct()
     {
         $this->task = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
