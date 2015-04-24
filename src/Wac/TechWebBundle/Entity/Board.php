@@ -29,7 +29,7 @@ class Board
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Task", mappedBy="board")
+     * @ORM\OneToMany(targetEntity="Task", mappedBy="board", cascade={"remove"})
      */
     protected $task;
 

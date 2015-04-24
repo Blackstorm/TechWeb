@@ -29,7 +29,7 @@ class Task
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Board", inversedBy="task")
+     * @ORM\ManyToOne(targetEntity="Board", inversedBy="task", cascade={"remove"})
      */
     protected $board;
 

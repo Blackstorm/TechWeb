@@ -29,7 +29,7 @@ class Board
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Task", mappedBy="board")
+     * @ORM\OneToMany(targetEntity="Task", mappedBy="board", cascade={"remove"})
      */
     protected $task;
 
@@ -78,6 +78,7 @@ class Board
     public function __construct()
     {
         $this->task = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
